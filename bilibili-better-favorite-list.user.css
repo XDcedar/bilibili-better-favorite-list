@@ -13,7 +13,7 @@
     max-height: 300px;
   }
 
-/* 收藏夹列表 flex布局 */
+/* 收藏夹列表. flex布局. 因为默认收藏夹不在 .fav-list 里面, 所以不好改成 grid 布局, 否则很难保证所有收藏夹全部同宽 */
   #page-fav .fav-list
   {
     display: flex;
@@ -34,11 +34,17 @@
     flex: auto;
   }
 
-/* 收藏夹文字宽度. 只涉及视频收藏夹(.fav-container), 不涉及专项收藏夹(即话题收藏夹 专栏收藏夹etc)(.playlist-container) */
+/* 收藏夹文字宽和高. 只涉及视频收藏夹(.fav-container), 不涉及专项收藏夹(即话题收藏夹 专栏收藏夹etc)(.playlist-container)
+     width的计算方法是 全长100% - B站设置的marin-right:10px - 收藏视频数.num的宽度32px - 菜单项.be-dropdown的宽度32px */
   #page-fav .fav-container .text
   {
     line-height: 35px;
-    width: 150px;
+    width: calc(100% - 10px - 32px - 32px);
+  }
+/* 收藏夹的收藏视频数. 设置margin-left让其自动居右 */
+  #page-fav .fav-sidenav .num
+  {
+    margin-left: auto;
   }
 
 /* 鼠标在收藏夹上悬浮时, 收藏夹显示的视频收藏数保持显示 */
@@ -58,11 +64,12 @@
   #page-fav .fav-main .fav-video-list
   {
     display: grid;
-    grid-template-columns: repeat(6, auto);
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-evenly;
   }
 /* 视频列表项. 记得去掉奇葩的第五个视频无margin-right的设置 */
   #page-fav .fav-main .small-item,
-#page-fav .fav-main .small-item:nth-child(5n)
+  #page-fav .fav-main .small-item:nth-child(5n)
   {
     margin: 0px 5px 20px 5px;
     justify-self: center;
@@ -72,41 +79,38 @@
 @-moz-document url-prefix("https://www.bilibili.com/video/")
 {
 /* ====== 视频收藏界面 ====== */
-/* 收藏弹窗宽度 (设置为与窗口宽度有关) */
+/* 收藏弹窗. 宽度拉宽指定长度(本想设置成变长的70vw, 但而效果不太好) */
   .collection-m
   {
     width: 950px;
   }
-/* 收藏弹窗中收藏列表的高度 (暂时不用改, 原效果是通过设置margin-bottom实现的) */
-/* .collection-m .content {
-} */
+/* 收藏弹窗中收藏列表的高度 (暂时不改) */
+/* .collection-m .content
+  {
+      min-width: 300px;
+      max-width: 50vh;
+  } */
 
-/* 收藏列表. 采用flex布局 */
+/* 收藏列表的container. 不需要设置最大高度 */
+  .collection-m .content .group-list
+  {
+    max-height: unset;
+  }
+/* 收藏列表. 采用grid布局 */
   .collection-m .content .group-list ul
   {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
     row-gap: 2px;
+    justify-content: stretch;
   }
 /* 收藏夹列表项 */
   .collection-m .content .group-list li
   {
-    width: 30%;
     height: 25px;
     padding: 3px 10px;
   }
-/* 用伪元素防止最后一行的元素排到两侧去
-   这种做法只适合三列的space-between形式的flexbox布局,
-   缺点是如果元素个数恰好是3的倍数, 那最终下方会多出一个伪元素
-   (可是局限性这么大的话我为什么不用grid??) */
-  .collection-m .content .group-list ul::after
-  {
-    content: '';
-    width: 30%;
-    padding: 0 10px;
-  }
-/* 收藏夹项目 内部同样是flex布局 */
+/* 收藏夹项目 内部是flex布局 */
   .collection-m .content .group-list li label
   {
     display: flex;
@@ -118,17 +122,18 @@
     margin-right: 5px;
     min-width: 20px;
   }
-/* 收藏夹标题最大长度, 其实它的最大长度是由其它元素动态决定的 */
-/* .collection-m .content .group-list li .fav-title {
-    max-width: 150px;
-} */
-/* 收藏夹 [私密]tag 防止它在标题过长时被挤扁换行 */
+/* 收藏夹标题最大长度, 其实它的最大长度是由其它元素动态决定的 设置了的效果反而更差 */
+/* .collection-m .content .group-list li .fav-title
+  {
+      max-width: 150px;
+  } */
+/* 收藏夹的[私密]tag 防止它在标题过长时被挤扁换行 */
   .collection-m .content .group-list li label .count
   {
     margin-left: auto;
     white-space: nowrap;
   }
-/* 收藏夹 已收藏数量 用margin-left: auto 让其自动居右侧 */
+/* 收藏夹的已收藏数量 用margin-left: auto 让其自动居右侧 */
   .collection-m .content .group-list li label .count
   {
     margin-left: auto;
