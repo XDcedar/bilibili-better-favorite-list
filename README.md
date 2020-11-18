@@ -16,5 +16,5 @@ https://userstyles.org/styles/192674/bilibili
 
 
 # 版本更新
-v0.2 添加收藏夹页面，用grid替换掉之前的flexbox
+v0.2 调整添加视频收藏的页面, 用grid替换掉之前的flexbox, 略微改进个人收藏夹页面的显示效果, 修改注释
 v0.1 最初版本
