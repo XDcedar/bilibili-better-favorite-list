@@ -56,14 +56,14 @@
 /* 视频列表. grid布局 */
 #page-fav .fav-main .fav-video-list {
     display: grid;
-    grid-template-columns: repeat(5, auto);
-    justify-content: space-evenly;
+    grid-template-columns: repeat(5, minmax(auto, 1fr));
     row-gap: 20px;
 }
 /* 视频列表项. 记得去掉奇葩的第五个视频无margin-right的设置, 底部的20px的margin也去掉 交给row-gap实现 */
 #page-fav .fav-main .small-item,
 #page-fav .fav-main .small-item:nth-child(5n) {
     margin: 0px 5px;
+    justify-self: center;
 }
 }
 
@@ -130,3 +130,4 @@
     bottom: 18px;
 }
 }
+
