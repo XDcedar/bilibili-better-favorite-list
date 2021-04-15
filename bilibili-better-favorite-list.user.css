@@ -41,6 +41,7 @@
 /* 收藏夹的收藏视频数. 宽度改为不固定, 配合上面的 flex-grow 可以留出更多空间显示收藏夹的名字 */
 #page-fav .fav-sidenav .num {
     width: auto;
+    margin-right: 5px;
 }
 
 /* 鼠标在收藏夹上悬浮时, 收藏夹显示的视频收藏数保持显示 */
