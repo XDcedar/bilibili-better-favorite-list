@@ -49,7 +49,7 @@
     display: inline-block;
   }
 }
-@-moz-document regexp("https://space.bilibili.com/\\d+/favlist\\?fid=\\d+.*") {
+@-moz-document regexp("https://space.bilibili.com/\\d+/favlist"), regexp("https://space.bilibili.com/\\d+/favlist\\?fid=\\d+.*") {
   /* ====== 用户收藏页面的视频区域 ====== */
   /* 必须修改URL, 因为话题收藏夹 专栏收藏夹 相簿收藏夹 课程收藏夹 的布局跟视频收藏夹完全不同.
    目前只能通过设置URL的匹配来更改. 视频收藏夹的fid是数字, 而其他收藏夹不是.
