@@ -48,6 +48,13 @@
 #page-fav .col-full.master .fav-container .fav-item:hover .num {
     display: inline-block;
 }
+}
+
+@-moz-document regexp("https://space.bilibili.com/\\d+/favlist\\?fid=\\d+.*") {
+/* ====== 用户收藏页面的视频区域 ====== */
+/* 必须修改URL, 因为话题收藏夹 专栏收藏夹 相簿收藏夹 课程收藏夹 的布局跟视频收藏夹完全不同.
+   目前只能通过设置URL的匹配来更改. 视频收藏夹的fid是数字, 而其他收藏夹不是.
+   这么做的问题在于其他收藏夹的排版会不好看. 目前暂时没心思改, 以后再调整吧. */
 
 /* 视频区域. 设置宽度, 设置border-top以此分割收藏夹列表 */
 #page-fav .fav-main {
@@ -133,4 +140,3 @@
     bottom: 18px;
 }
 }
-
