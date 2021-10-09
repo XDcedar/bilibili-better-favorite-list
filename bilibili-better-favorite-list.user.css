@@ -5,9 +5,14 @@
     width: 100%;
   }
 
-  /* 收藏夹列表容器 */
-  #page-fav .fav-sidenav .fav-list-container {
+  /* 收藏夹列表容器 我的创建 */
+  #page-fav .fav-sidenav .fav-list-container#fav-createdList-container {
     max-height: 300px;
+  }
+
+  /* 收藏夹列表容器 我的收藏和订阅. 这一栏要特意设置得矮一点, 保证列表可以滚动. 因为只有滚动滚轮才会加载以前的订阅. */
+  #page-fav .fav-sidenav .fav-list-container#fav-list-container {
+    max-height: 162px;
   }
 
   /* 收藏夹列表. grid布局. 右侧留出15px给滚动条 */
