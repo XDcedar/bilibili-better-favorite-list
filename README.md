@@ -1,6 +1,7 @@
 # bilibili-better-favorite-list
 a stylus CSS style for better bilibili favorite list
 
+https://userstyles.world/style/2578/bilibili \
 https://userstyles.org/styles/192674/bilibili
 
 几十个收藏夹挤在左边太难受了 \
