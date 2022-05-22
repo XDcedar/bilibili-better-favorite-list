@@ -1,3 +1,12 @@
+/* ==UserStyle==
+@name           Bilibili收藏夹美化
+@namespace      USO Archive
+@author         xdcedar
+@description    `更好看更好用的Bilibili收藏夹`
+@version        20220522.13.10
+@license        NO-REDISTRIBUTION
+@preprocessor   uso
+==/UserStyle== */
 @-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {
   /* ====== 用户收藏页面侧边栏 ====== */
   /* 收藏夹sidenav扩展为全长 */
