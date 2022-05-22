@@ -65,7 +65,8 @@
     /* border-top: 10px solid rgba(196, 229, 255, 0.4); */
   }
 }
-@-moz-document regexp("https://space.bilibili.com/\\d+/favlist"), regexp("https://space.bilibili.com/\\d+/favlist\\?fid=\\d+.*") {
+@-moz-document regexp("https://space.bilibili.com/\\d+/favlist"),
+regexp("https://space.bilibili.com/\\d+/favlist\\?fid=\\d+.*") {
   /* ====== 用户收藏页面内容区 视频收藏夹 ====== */
   /* 视频列表. grid布局 */
   #page-fav .fav-main .fav-video-list {
@@ -111,61 +112,73 @@
 @-moz-document url-prefix("https://www.bilibili.com/video/") {
   /* ====== 视频收藏界面 ====== */
   /* 收藏弹窗. 宽度拉宽指定长度(本想设置成可变长度的70vw, 但效果不太好) */
-  .collection-m {
+  .collection-m,
+  .collection-m-exp {
     width: 950px;
   }
   /* 收藏弹窗中收藏列表的高度 (暂时不改) */
-  /* .collection-m .content {
-    min-width: 300px;
-    max-width: 50vh;
-} */
+  /* .collection-m .content,
+  .collection-m-exp .content {
+      min-width: 300px;
+      max-width: 50vh;
+  } */
   /* 收藏列表的container. 不需要设置最大高度 */
-  .collection-m .content .group-list {
+  .collection-m .content .group-list,
+  .collection-m-exp .content .group-list {
     max-height: unset;
   }
   /* 收藏列表. 采用grid布局 */
-  .collection-m .content .group-list ul {
+  .collection-m .content .group-list ul,
+  .collection-m-exp .content .group-list ul {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     row-gap: 2px;
     justify-content: stretch;
   }
   /* 收藏夹列表项 */
-  .collection-m .content .group-list li {
+  .collection-m .content .group-list li,
+  .collection-m-exp .content .group-list li {
     height: 25px;
     padding: 3px 10px;
   }
 
   /* 收藏夹项目. 内部是flex布局 */
-  .collection-m .content .group-list li label {
+  .collection-m .content .group-list li label,
+  .collection-m-exp .content .group-list li label {
     display: flex;
     align-items: center;
   }
   /* 勾选框. 右侧.fav-title的间距, 加上min-width才能防止标题过长时把它挤扁 */
-  .collection-m .content .group-list li input[type=checkbox] + i {
+  .collection-m .content .group-list li input[type=checkbox] + i,
+  .collection-m-exp .content .group-list li input[type=checkbox] + i {
     margin-right: 10px;
     min-width: 20px;
   }
   /* 收藏夹标题最大长度, 其实它的最大长度是由其它元素动态决定的 设置了的效果反而更差 */
-  /* .collection-m .content .group-list li .fav-title {
-    max-width: 150px;
-} */
+  /* .collection-m-exp .content .group-list li .fav-title ,
+  .collection-m-exp .content .group-list li .fav-title {
+      max-width: 150px;
+  } */
   /* 收藏夹的[私密]tag. 防止它在标题过长时被挤扁换行 */
-  .collection-m .content .group-list li label .personal {
+  .collection-m .content .group-list li label .personal,
+  .collection-m-exp .content .group-list li label .personal {
     white-space: nowrap;
   }
   /* 收藏夹的已收藏数量. 用 margin-left: auto 让其自动居右侧 */
-  .collection-m .content .group-list li label .count {
+  .collection-m .content .group-list li label .count,
+  .collection-m-exp .content .group-list li label .count {
     margin-left: auto;
   }
 
   /* 确定按钮 */
-  .collection-m .bottom .btn {
+  .collection-m .bottom .btn,
+  .collection-m-exp .bottom .btn {
     position: absolute;
     right: 40px;
   }
   /* 新建收藏夹的输入框 */
-  .collection-m .content .group-list .add-group {
+  .collection-m .content .group-list .add-group,
+  .collection-m-exp .content .group-list .add-group {
     position: absolute;
     bottom: 18px;
   }
