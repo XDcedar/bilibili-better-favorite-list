@@ -3,7 +3,7 @@
 @namespace      xdcedar.stylus
 @author         xdcedar
 @description    更好看更好用的 Bilibili 收藏夹
-@version        20220813.14.17
+@version        20230114.14.35
 @homepageURL    https://github.com/XDcedar/bilibili-better-favorite-list
 @license        CC BY-NC-SA-4.0
 @preprocessor   default
@@ -73,6 +73,13 @@
     width: 100%;
     border-top: 10px solid #eee;
     /* border-top: 10px solid rgba(196, 229, 255, 0.4); */
+  }
+  /* 2023-01-14 发现B站更新，多了伪元素 .clearfix:after 和 .clearfix:before。
+   如果强行去掉这两个伪元素会导致背景变为无色，但保留会导致 GRID 首尾多出一个空白格子。
+   目前通过如下写法把布局首位的伪元素移到新行的行尾来规避，缺点是会导致下方有一点点多余的空白。
+   对于视频收藏夹来说设为 6 即可，但话题收藏夹行数较多，因此使用数字 8。 */
+  .clearfix:before {
+    grid-row-end: 8;
   }
 }
 @-moz-document regexp("https://space.bilibili.com/\\d+/favlist"),
