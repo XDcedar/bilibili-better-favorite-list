@@ -8,6 +8,49 @@
 @license        CC BY-NC-SA-4.0
 @preprocessor   default
 ==/UserStyle== */
+@-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {  
+  /* ====== 用户收藏页面侧边栏 ====== */
+  /* 收藏夹侧边栏最外层容器 */
+  main.space-main .space-favlist .favlist-aside {
+    --aside-width: 100%; /* 扩展为全长 */
+    position: static; /* 不要粘性定位 */
+  }
+
+  /* 收藏夹侧边栏与内容改为纵向排列 */
+  main.space-main .space-favlist {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* 收藏夹列表容器最大高度 */
+  .fav-collapse-wrap {
+    max-height: 300px;
+  }
+
+  /* 收藏夹列表使用 grid 布局 */
+  .fav-collapse .vui_collapse_item_content .vui_sidebar .fav-sortable-list, /* 我创建的收藏夹 */
+  .fav-collapse+.fav-collapse .vui_collapse_item_content .vui_sidebar /* 我追的合集/收藏夹、其他收藏（用`+`跳过我创建的收藏夹） */ {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    justify-content: stretch;
+  }
+
+  /* 缩短新建收藏夹按钮避免误触  */
+  .fav-collapse-wrap > .fav-collapse-create {
+    width: 25%;
+  }
+
+  /* 默认收藏夹不在 .fav-sortable-list 中，宽度要单独调整以与其余收藏夹保持一致。注意使用 :first 选中页面的第一个收藏夹（我创建的收藏夹） */
+  .fav-collapse:first .vui_collapse_item_content .vui_sidebar > .fav-sidebar-item {
+    width: 25%;
+  }
+
+  /* 收藏夹文字宽度 */
+  .fav-sidebar-item .vui_sidebar-item-title .vui_ellipsis {
+    max-width: stretch; /* 自动填满多余空间 */
+    margin-right: 5px; /* 右侧少量空白避免文字贴着收藏夹视频统计数字 */
+  }
+}
 @-moz-document url-prefix("https://www.bilibili.com/video/") {
   /* ====== 视频收藏界面 ====== */
   /* 收藏弹窗. 宽度拉宽指定长度(本想设置成可变长度的70vw, 但效果不太好) */
@@ -82,6 +125,9 @@
     bottom: 18px;
   }
 }
+
+/* === 以上代码适配新版界面，以下代码兼容旧版界面 === */
+
 @-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {
   /* ====== 用户收藏页面侧边栏 ====== */
   /* 收藏夹sidenav扩展为全长 */
