@@ -8,12 +8,14 @@
 @license        CC BY-NC-SA-4.0
 @preprocessor   default
 ==/UserStyle== */
-@-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {  
+@-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {
   /* ====== 用户收藏页面侧边栏 ====== */
   /* 收藏夹侧边栏最外层容器 */
   main.space-main .space-favlist .favlist-aside {
-    --aside-width: 100%; /* 扩展为全长 */
-    position: static; /* 不要粘性定位 */
+    /* 扩展为全长 */
+    --aside-width: 100%;
+    /* 不要粘性定位 */
+    position: static;
   }
 
   /* 收藏夹侧边栏与内容改为纵向排列 */
@@ -28,9 +30,10 @@
   }
 
   /* 收藏夹列表使用 grid 布局 */
-  .fav-collapse .vui_collapse_item_content .fav-collapse-create+.vui_sidebar .fav-sortable-list, /* 我创建的收藏夹（根据“新建收藏夹”按钮 .fav-collapse-create 判断） */
-   /* 我追的合集/收藏夹、其他收藏（用`:not`跳过我创建的收藏夹，但适配其他用户的收藏夹） */
-  .fav-collapse .vui_collapse_item_content .vui_sidebar:not(.fav-collapse-create+.vui_sidebar) {
+  /* 我创建的收藏夹（根据“新建收藏夹”按钮 .fav-collapse-create 判断） */
+  .fav-collapse .vui_collapse_item_content .fav-collapse-create + .vui_sidebar .fav-sortable-list,
+  /* 我追的合集/收藏夹、其他收藏（用`:not`跳过我创建的收藏夹，但适配其他用户的收藏夹） */
+  .fav-collapse .vui_collapse_item_content .vui_sidebar:not(.fav-collapse-create + .vui_sidebar) {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     justify-content: stretch;
@@ -48,8 +51,10 @@
 
   /* 收藏夹文字宽度 */
   .fav-sidebar-item .vui_sidebar-item-title .vui_ellipsis {
-    max-width: stretch; /* 自动填满多余空间 */
-    margin-right: 5px; /* 右侧少量空白避免文字贴着收藏夹视频统计数字 */
+    /* 自动填满多余空间 */
+    max-width: stretch;
+    /* 右侧少量空白避免文字贴着收藏夹视频统计数字 */
+    margin-right: 5px;
   }
 }
 @-moz-document url-prefix("https://www.bilibili.com/video/") {
@@ -128,7 +133,6 @@
 }
 
 /* === 以上代码适配新版界面，以下代码兼容旧版界面 === */
-
 @-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {
   /* ====== 用户收藏页面侧边栏 ====== */
   /* 收藏夹sidenav扩展为全长 */
