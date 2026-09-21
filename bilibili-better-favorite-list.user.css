@@ -28,8 +28,9 @@
   }
 
   /* 收藏夹列表使用 grid 布局 */
-  .fav-collapse .vui_collapse_item_content .vui_sidebar .fav-sortable-list, /* 我创建的收藏夹 */
-  .fav-collapse+.fav-collapse .vui_collapse_item_content .vui_sidebar /* 我追的合集/收藏夹、其他收藏（用`+`跳过我创建的收藏夹） */ {
+  .fav-collapse .vui_collapse_item_content .fav-collapse-create+.vui_sidebar .fav-sortable-list, /* 我创建的收藏夹（根据“新建收藏夹”按钮 .fav-collapse-create 判断） */
+   /* 我追的合集/收藏夹、其他收藏（用`:not`跳过我创建的收藏夹，但适配其他用户的收藏夹） */
+  .fav-collapse .vui_collapse_item_content .vui_sidebar:not(.fav-collapse-create+.vui_sidebar) {
     display: grid;
     grid-template-columns: repeat(6, minmax(0, 1fr));
     justify-content: stretch;
