@@ -10,6 +10,11 @@
 ==/UserStyle== */
 @-moz-document regexp("https://space.bilibili.com/\\d+/favlist.*") {
   /* ====== 用户收藏页面侧边栏 ====== */
+  /* 自定义变量（bbfl = bilibili better favorite list） */
+  main.space-main {
+    /* 收藏夹列表列数 */
+    --bbfl-grid-columns: 6;
+  }
   /* 收藏夹侧边栏最外层容器 */
   main.space-main .space-favlist .favlist-aside {
     /* 扩展为全长 */
@@ -35,19 +40,19 @@
   /* 我追的合集/收藏夹、其他收藏（用`:not`跳过我创建的收藏夹，但适配其他用户的收藏夹） */
   .fav-collapse .vui_collapse_item_content .vui_sidebar:not(.fav-collapse-create + .vui_sidebar) {
     display: grid;
-    grid-template-columns: repeat(6, minmax(0, 1fr));
+    grid-template-columns: repeat(var(--bbfl-grid-columns), minmax(0, 1fr));
     justify-content: stretch;
   }
 
   /* 缩短新建收藏夹按钮避免误触  */
   .fav-collapse-wrap > .fav-collapse-create {
-    width: calc(100% / 6)
+    width: calc(100% / var(--bbfl-grid-columns))
   }
 
   /* 默认收藏夹不在 .fav-sortable-list 中，宽度要单独调整以与其余收藏夹保持一致。*/
   /*注意使用 :has 选中包含可排序列表的 .fav-sidebar-item（查看我创建的收藏夹才有可排序列表，查看别人的收藏夹页面则没有） */
   .fav-collapse .vui_collapse_item_content .vui_sidebar > .fav-sidebar-item:has(+ .fav-sortable-list) {
-    width: calc(100% / 6);
+    width: calc(100% / var(--bbfl-grid-columns));
   }
 
   /* 收藏夹文字宽度 */
