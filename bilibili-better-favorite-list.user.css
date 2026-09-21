@@ -31,7 +31,7 @@
   .fav-collapse .vui_collapse_item_content .vui_sidebar .fav-sortable-list, /* 我创建的收藏夹 */
   .fav-collapse+.fav-collapse .vui_collapse_item_content .vui_sidebar /* 我追的合集/收藏夹、其他收藏（用`+`跳过我创建的收藏夹） */ {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(6, minmax(0, 1fr));
     justify-content: stretch;
   }
 
