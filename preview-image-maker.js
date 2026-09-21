@@ -45,18 +45,18 @@ const favListNames = [
 // 我创建的收藏夹
 const favCreatedConfig = {
   selectors: {
-    node: "#fav-createdList-container > ul",
-    link: "a.text",
-    num: "span.num"
+    node: ".fav-collapse .vui_collapse_item_content .fav-collapse-create + .vui_sidebar .fav-sortable-list",
+    link: ".vui_ellipsis",
+    num: ".vui_sidebar-item-right"
   },
   names: favCreatedListNames
 };
 // 我的收藏与订阅
 const favConfig = {
   selectors: {
-    node: "#fav-list-container > ul",
-    link: "a.text",
-    num: "span.num"
+    node: ".fav-collapse .vui_collapse_item_content .vui_sidebar:not(.fav-collapse-create + .vui_sidebar)",
+    link: ".vui_ellipsis",
+    num: ".vui_sidebar-item-right"
   },
   names: favListNames
 };
@@ -64,8 +64,8 @@ const favConfig = {
 function replaceNames(config) {
   listEl = document.querySelector(config.selectors.node);
   for (const [i, name] of config.names.entries()) {
-    listEl.children[i].querySelector(config.selectors.link).innerHTML = name.name;
-    listEl.children[i].querySelector(config.selectors.num).innerHTML = name.num;
+    listEl.children[i].querySelector(config.selectors.link).textContent = name.name;
+    listEl.children[i].querySelector(config.selectors.num).textContent = name.num;
   }
 }
 replaceNames(favCreatedConfig);
