@@ -18,6 +18,7 @@ A userstyle for better Bilibili favorite list.
 目前会持续维护，但代码已完成，不会有大改动，处于随缘更新和修 BUG 的状态。
 
 ## 更新历史
+* v0.9 （终于）适配新版 B 站页面
 * v0.8.2 B 站布局变化，想办法绕过问题。
 * v0.8.1 调整 metadata
 * v0.8 适配新版B站视频收藏界面，暂时保留旧版Selector方便未更新新版的用户
